@@ -1,0 +1,1080 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ecombine.salary.dao.SalaryDetailMapper">
+  <resultMap id="BaseResultMap" type="com.ecombine.salary.pojo.SalaryDetail">
+    <id column="jobNo" jdbcType="VARCHAR" property="jobno" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="year" jdbcType="VARCHAR" property="year" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="telNo" jdbcType="VARCHAR" property="telno" />
+    <result column="wageDb" jdbcType="VARCHAR" property="wagedb" />
+    <result column="jxgzblDb" jdbcType="VARCHAR" property="jxgzbldb" />
+    <result column="yfjxgzDb" jdbcType="VARCHAR" property="yfjxgzdb" />
+    <result column="jxxsDb" jdbcType="VARCHAR" property="jxxsdb" />
+    <result column="sfjxgzDb" jdbcType="VARCHAR" property="sfjxgzdb" />
+    <result column="gwbtDb" jdbcType="VARCHAR" property="gwbtdb" />
+    <result column="zwbtDb" jdbcType="VARCHAR" property="zwbtdb" />
+    <result column="gxjlDb" jdbcType="VARCHAR" property="gxjldb" />
+    <result column="gxcfDb" jdbcType="VARCHAR" property="gxcfdb" />
+    <result column="jbfDb" jdbcType="VARCHAR" property="jbfdb" />
+    <result column="kqjgzDb" jdbcType="VARCHAR" property="kqjgzdb" />
+    <result column="cfbtDb" jdbcType="VARCHAR" property="cfbtdb" />
+    <result column="gzbtDb" jdbcType="VARCHAR" property="gzbtdb" />
+    <result column="gzkxDb" jdbcType="VARCHAR" property="gzkxdb" />
+    <result column="yfgzhjDb" jdbcType="VARCHAR" property="yfgzhjdb" />
+    <result column="dkbxfDb" jdbcType="VARCHAR" property="dkbxfdb" />
+    <result column="dkgjjDb" jdbcType="VARCHAR" property="dkgjjdb" />
+    <result column="gjjcbDb" jdbcType="VARCHAR" property="gjjcbdb" />
+    <result column="yssdeDb" jdbcType="VARCHAR" property="yssdedb" />
+    <result column="kgrsdsDb" jdbcType="VARCHAR" property="kgrsdsdb" />
+    <result column="dkgfDb" jdbcType="VARCHAR" property="dkgfdb" />
+    <result column="kqtDb" jdbcType="VARCHAR" property="kqtdb" />
+    <result column="kkhjDb" jdbcType="VARCHAR" property="kkhjdb" />
+    <result column="sfgzDb" jdbcType="VARCHAR" property="sfgzdb" />
+    <result column="sjcq" jdbcType="DECIMAL" property="sjcq" />
+    <result column="sjts" jdbcType="DECIMAL" property="sjts" />
+    <result column="bjts" jdbcType="DECIMAL" property="bjts" />
+    <result column="cbts" jdbcType="DECIMAL" property="cbts" />
+    <result column="des" jdbcType="VARCHAR" property="des" />
+    <result column="mailAddr" jdbcType="VARCHAR" property="mailaddr" />
+    <result column="smsActi" jdbcType="VARCHAR" property="smsacti" />
+    <result column="position" jdbcType="VARCHAR" property="position" />
+    <result column="cqgzDb" jdbcType="VARCHAR" property="cqgzdb" />
+    <result column="gwgzDb" jdbcType="VARCHAR" property="gwgzdb" />
+    <result column="jngzDb" jdbcType="VARCHAR" property="jngzdb" />
+    <result column="bzgsgzDb" jdbcType="VARCHAR" property="bzgsgzdb" />
+    <result column="cegsgzDb" jdbcType="VARCHAR" property="cegsgzdb" />
+    <result column="jbgsbtDb" jdbcType="VARCHAR" property="jbgsbtdb" />
+    <result column="gaowbtDb" jdbcType="VARCHAR" property="gaowbtdb" />
+    <result column="bkshbxDb" jdbcType="VARCHAR" property="bkshbxdb" />
+    <result column="bkgjjDb" jdbcType="VARCHAR" property="bkgjjdb" />
+    <result column="klwsDb" jdbcType="VARCHAR" property="klwsdb" />
+    <result column="kgrjkDb" jdbcType="VARCHAR" property="kgrjkdb" />
+    <result column="klxDb" jdbcType="VARCHAR" property="klxdb" />
+    <result column="dkyfbxfDb" jdbcType="VARCHAR" property="dkyfbxfdb" />
+    <result column="zsbtDb" jdbcType="VARCHAR" property="zsbtdb" />
+    <result column="zwbtts" jdbcType="DECIMAL" property="zwbtts" />
+    <result column="jbjsts" jdbcType="DECIMAL" property="jbjsts" />
+    <result column="jbylts" jdbcType="DECIMAL" property="jbylts" />
+    <result column="ysjbxss" jdbcType="DECIMAL" property="ysjbxss" />
+    <result column="yr" jdbcType="VARCHAR" property="yr" />
+    <result column="month" jdbcType="VARCHAR" property="month" />
+    <result column="departName" jdbcType="VARCHAR" property="departname" />
+    <result column="phoneNo" jdbcType="VARCHAR" property="phoneno" />
+    <result column="mail" jdbcType="VARCHAR" property="mail" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    jobNo, name, year, email, telNo, wageDb, jxgzblDb, yfjxgzDb, jxxsDb, sfjxgzDb, gwbtDb, 
+    zwbtDb, gxjlDb, gxcfDb, jbfDb, kqjgzDb, cfbtDb, gzbtDb, gzkxDb, yfgzhjDb, dkbxfDb, 
+    dkgjjDb, gjjcbDb, yssdeDb, kgrsdsDb, dkgfDb, kqtDb, kkhjDb, sfgzDb, sjcq, sjts, bjts, 
+    cbts, des, mailAddr, smsActi, position, cqgzDb, gwgzDb, jngzDb, bzgsgzDb, cegsgzDb, 
+    jbgsbtDb, gaowbtDb, bkshbxDb, bkgjjDb, klwsDb, kgrjkDb, klxDb, dkyfbxfDb, zsbtDb, 
+    zwbtts, jbjsts, jbylts, ysjbxss, yr, month, departName, phoneNo, mail
+  </sql>
+  <select id="selectByExample" parameterType="com.ecombine.salary.pojo.SalaryDetailExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from SalaryDetail
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SalaryDetail
+    where jobNo = #{jobno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from SalaryDetail
+    where jobNo = #{jobno,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ecombine.salary.pojo.SalaryDetailExample">
+    delete from SalaryDetail
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ecombine.salary.pojo.SalaryDetail">
+    insert into SalaryDetail (jobNo, name, year, 
+      email, telNo, wageDb, 
+      jxgzblDb, yfjxgzDb, jxxsDb, 
+      sfjxgzDb, gwbtDb, zwbtDb, 
+      gxjlDb, gxcfDb, jbfDb, 
+      kqjgzDb, cfbtDb, gzbtDb, 
+      gzkxDb, yfgzhjDb, dkbxfDb, 
+      dkgjjDb, gjjcbDb, yssdeDb, 
+      kgrsdsDb, dkgfDb, kqtDb, 
+      kkhjDb, sfgzDb, sjcq, 
+      sjts, bjts, cbts, des, 
+      mailAddr, smsActi, position, 
+      cqgzDb, gwgzDb, jngzDb, 
+      bzgsgzDb, cegsgzDb, jbgsbtDb, 
+      gaowbtDb, bkshbxDb, bkgjjDb, 
+      klwsDb, kgrjkDb, klxDb, 
+      dkyfbxfDb, zsbtDb, zwbtts, 
+      jbjsts, jbylts, ysjbxss, 
+      yr, month, departName, 
+      phoneNo, mail)
+    values (#{jobno,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{year,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{telno,jdbcType=VARCHAR}, #{wagedb,jdbcType=VARCHAR}, 
+      #{jxgzbldb,jdbcType=VARCHAR}, #{yfjxgzdb,jdbcType=VARCHAR}, #{jxxsdb,jdbcType=VARCHAR}, 
+      #{sfjxgzdb,jdbcType=VARCHAR}, #{gwbtdb,jdbcType=VARCHAR}, #{zwbtdb,jdbcType=VARCHAR}, 
+      #{gxjldb,jdbcType=VARCHAR}, #{gxcfdb,jdbcType=VARCHAR}, #{jbfdb,jdbcType=VARCHAR}, 
+      #{kqjgzdb,jdbcType=VARCHAR}, #{cfbtdb,jdbcType=VARCHAR}, #{gzbtdb,jdbcType=VARCHAR}, 
+      #{gzkxdb,jdbcType=VARCHAR}, #{yfgzhjdb,jdbcType=VARCHAR}, #{dkbxfdb,jdbcType=VARCHAR}, 
+      #{dkgjjdb,jdbcType=VARCHAR}, #{gjjcbdb,jdbcType=VARCHAR}, #{yssdedb,jdbcType=VARCHAR}, 
+      #{kgrsdsdb,jdbcType=VARCHAR}, #{dkgfdb,jdbcType=VARCHAR}, #{kqtdb,jdbcType=VARCHAR}, 
+      #{kkhjdb,jdbcType=VARCHAR}, #{sfgzdb,jdbcType=VARCHAR}, #{sjcq,jdbcType=DECIMAL}, 
+      #{sjts,jdbcType=DECIMAL}, #{bjts,jdbcType=DECIMAL}, #{cbts,jdbcType=DECIMAL}, #{des,jdbcType=VARCHAR}, 
+      #{mailaddr,jdbcType=VARCHAR}, #{smsacti,jdbcType=VARCHAR}, #{position,jdbcType=VARCHAR}, 
+      #{cqgzdb,jdbcType=VARCHAR}, #{gwgzdb,jdbcType=VARCHAR}, #{jngzdb,jdbcType=VARCHAR}, 
+      #{bzgsgzdb,jdbcType=VARCHAR}, #{cegsgzdb,jdbcType=VARCHAR}, #{jbgsbtdb,jdbcType=VARCHAR}, 
+      #{gaowbtdb,jdbcType=VARCHAR}, #{bkshbxdb,jdbcType=VARCHAR}, #{bkgjjdb,jdbcType=VARCHAR}, 
+      #{klwsdb,jdbcType=VARCHAR}, #{kgrjkdb,jdbcType=VARCHAR}, #{klxdb,jdbcType=VARCHAR}, 
+      #{dkyfbxfdb,jdbcType=VARCHAR}, #{zsbtdb,jdbcType=VARCHAR}, #{zwbtts,jdbcType=DECIMAL}, 
+      #{jbjsts,jdbcType=DECIMAL}, #{jbylts,jdbcType=DECIMAL}, #{ysjbxss,jdbcType=DECIMAL}, 
+      #{yr,jdbcType=VARCHAR}, #{month,jdbcType=VARCHAR}, #{departname,jdbcType=VARCHAR}, 
+      #{phoneno,jdbcType=VARCHAR}, #{mail,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ecombine.salary.pojo.SalaryDetail">
+    insert into SalaryDetail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="jobno != null">
+        jobNo,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="year != null">
+        year,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="telno != null">
+        telNo,
+      </if>
+      <if test="wagedb != null">
+        wageDb,
+      </if>
+      <if test="jxgzbldb != null">
+        jxgzblDb,
+      </if>
+      <if test="yfjxgzdb != null">
+        yfjxgzDb,
+      </if>
+      <if test="jxxsdb != null">
+        jxxsDb,
+      </if>
+      <if test="sfjxgzdb != null">
+        sfjxgzDb,
+      </if>
+      <if test="gwbtdb != null">
+        gwbtDb,
+      </if>
+      <if test="zwbtdb != null">
+        zwbtDb,
+      </if>
+      <if test="gxjldb != null">
+        gxjlDb,
+      </if>
+      <if test="gxcfdb != null">
+        gxcfDb,
+      </if>
+      <if test="jbfdb != null">
+        jbfDb,
+      </if>
+      <if test="kqjgzdb != null">
+        kqjgzDb,
+      </if>
+      <if test="cfbtdb != null">
+        cfbtDb,
+      </if>
+      <if test="gzbtdb != null">
+        gzbtDb,
+      </if>
+      <if test="gzkxdb != null">
+        gzkxDb,
+      </if>
+      <if test="yfgzhjdb != null">
+        yfgzhjDb,
+      </if>
+      <if test="dkbxfdb != null">
+        dkbxfDb,
+      </if>
+      <if test="dkgjjdb != null">
+        dkgjjDb,
+      </if>
+      <if test="gjjcbdb != null">
+        gjjcbDb,
+      </if>
+      <if test="yssdedb != null">
+        yssdeDb,
+      </if>
+      <if test="kgrsdsdb != null">
+        kgrsdsDb,
+      </if>
+      <if test="dkgfdb != null">
+        dkgfDb,
+      </if>
+      <if test="kqtdb != null">
+        kqtDb,
+      </if>
+      <if test="kkhjdb != null">
+        kkhjDb,
+      </if>
+      <if test="sfgzdb != null">
+        sfgzDb,
+      </if>
+      <if test="sjcq != null">
+        sjcq,
+      </if>
+      <if test="sjts != null">
+        sjts,
+      </if>
+      <if test="bjts != null">
+        bjts,
+      </if>
+      <if test="cbts != null">
+        cbts,
+      </if>
+      <if test="des != null">
+        des,
+      </if>
+      <if test="mailaddr != null">
+        mailAddr,
+      </if>
+      <if test="smsacti != null">
+        smsActi,
+      </if>
+      <if test="position != null">
+        position,
+      </if>
+      <if test="cqgzdb != null">
+        cqgzDb,
+      </if>
+      <if test="gwgzdb != null">
+        gwgzDb,
+      </if>
+      <if test="jngzdb != null">
+        jngzDb,
+      </if>
+      <if test="bzgsgzdb != null">
+        bzgsgzDb,
+      </if>
+      <if test="cegsgzdb != null">
+        cegsgzDb,
+      </if>
+      <if test="jbgsbtdb != null">
+        jbgsbtDb,
+      </if>
+      <if test="gaowbtdb != null">
+        gaowbtDb,
+      </if>
+      <if test="bkshbxdb != null">
+        bkshbxDb,
+      </if>
+      <if test="bkgjjdb != null">
+        bkgjjDb,
+      </if>
+      <if test="klwsdb != null">
+        klwsDb,
+      </if>
+      <if test="kgrjkdb != null">
+        kgrjkDb,
+      </if>
+      <if test="klxdb != null">
+        klxDb,
+      </if>
+      <if test="dkyfbxfdb != null">
+        dkyfbxfDb,
+      </if>
+      <if test="zsbtdb != null">
+        zsbtDb,
+      </if>
+      <if test="zwbtts != null">
+        zwbtts,
+      </if>
+      <if test="jbjsts != null">
+        jbjsts,
+      </if>
+      <if test="jbylts != null">
+        jbylts,
+      </if>
+      <if test="ysjbxss != null">
+        ysjbxss,
+      </if>
+      <if test="yr != null">
+        yr,
+      </if>
+      <if test="month != null">
+        month,
+      </if>
+      <if test="departname != null">
+        departName,
+      </if>
+      <if test="phoneno != null">
+        phoneNo,
+      </if>
+      <if test="mail != null">
+        mail,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="jobno != null">
+        #{jobno,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null">
+        #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="telno != null">
+        #{telno,jdbcType=VARCHAR},
+      </if>
+      <if test="wagedb != null">
+        #{wagedb,jdbcType=VARCHAR},
+      </if>
+      <if test="jxgzbldb != null">
+        #{jxgzbldb,jdbcType=VARCHAR},
+      </if>
+      <if test="yfjxgzdb != null">
+        #{yfjxgzdb,jdbcType=VARCHAR},
+      </if>
+      <if test="jxxsdb != null">
+        #{jxxsdb,jdbcType=VARCHAR},
+      </if>
+      <if test="sfjxgzdb != null">
+        #{sfjxgzdb,jdbcType=VARCHAR},
+      </if>
+      <if test="gwbtdb != null">
+        #{gwbtdb,jdbcType=VARCHAR},
+      </if>
+      <if test="zwbtdb != null">
+        #{zwbtdb,jdbcType=VARCHAR},
+      </if>
+      <if test="gxjldb != null">
+        #{gxjldb,jdbcType=VARCHAR},
+      </if>
+      <if test="gxcfdb != null">
+        #{gxcfdb,jdbcType=VARCHAR},
+      </if>
+      <if test="jbfdb != null">
+        #{jbfdb,jdbcType=VARCHAR},
+      </if>
+      <if test="kqjgzdb != null">
+        #{kqjgzdb,jdbcType=VARCHAR},
+      </if>
+      <if test="cfbtdb != null">
+        #{cfbtdb,jdbcType=VARCHAR},
+      </if>
+      <if test="gzbtdb != null">
+        #{gzbtdb,jdbcType=VARCHAR},
+      </if>
+      <if test="gzkxdb != null">
+        #{gzkxdb,jdbcType=VARCHAR},
+      </if>
+      <if test="yfgzhjdb != null">
+        #{yfgzhjdb,jdbcType=VARCHAR},
+      </if>
+      <if test="dkbxfdb != null">
+        #{dkbxfdb,jdbcType=VARCHAR},
+      </if>
+      <if test="dkgjjdb != null">
+        #{dkgjjdb,jdbcType=VARCHAR},
+      </if>
+      <if test="gjjcbdb != null">
+        #{gjjcbdb,jdbcType=VARCHAR},
+      </if>
+      <if test="yssdedb != null">
+        #{yssdedb,jdbcType=VARCHAR},
+      </if>
+      <if test="kgrsdsdb != null">
+        #{kgrsdsdb,jdbcType=VARCHAR},
+      </if>
+      <if test="dkgfdb != null">
+        #{dkgfdb,jdbcType=VARCHAR},
+      </if>
+      <if test="kqtdb != null">
+        #{kqtdb,jdbcType=VARCHAR},
+      </if>
+      <if test="kkhjdb != null">
+        #{kkhjdb,jdbcType=VARCHAR},
+      </if>
+      <if test="sfgzdb != null">
+        #{sfgzdb,jdbcType=VARCHAR},
+      </if>
+      <if test="sjcq != null">
+        #{sjcq,jdbcType=DECIMAL},
+      </if>
+      <if test="sjts != null">
+        #{sjts,jdbcType=DECIMAL},
+      </if>
+      <if test="bjts != null">
+        #{bjts,jdbcType=DECIMAL},
+      </if>
+      <if test="cbts != null">
+        #{cbts,jdbcType=DECIMAL},
+      </if>
+      <if test="des != null">
+        #{des,jdbcType=VARCHAR},
+      </if>
+      <if test="mailaddr != null">
+        #{mailaddr,jdbcType=VARCHAR},
+      </if>
+      <if test="smsacti != null">
+        #{smsacti,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null">
+        #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="cqgzdb != null">
+        #{cqgzdb,jdbcType=VARCHAR},
+      </if>
+      <if test="gwgzdb != null">
+        #{gwgzdb,jdbcType=VARCHAR},
+      </if>
+      <if test="jngzdb != null">
+        #{jngzdb,jdbcType=VARCHAR},
+      </if>
+      <if test="bzgsgzdb != null">
+        #{bzgsgzdb,jdbcType=VARCHAR},
+      </if>
+      <if test="cegsgzdb != null">
+        #{cegsgzdb,jdbcType=VARCHAR},
+      </if>
+      <if test="jbgsbtdb != null">
+        #{jbgsbtdb,jdbcType=VARCHAR},
+      </if>
+      <if test="gaowbtdb != null">
+        #{gaowbtdb,jdbcType=VARCHAR},
+      </if>
+      <if test="bkshbxdb != null">
+        #{bkshbxdb,jdbcType=VARCHAR},
+      </if>
+      <if test="bkgjjdb != null">
+        #{bkgjjdb,jdbcType=VARCHAR},
+      </if>
+      <if test="klwsdb != null">
+        #{klwsdb,jdbcType=VARCHAR},
+      </if>
+      <if test="kgrjkdb != null">
+        #{kgrjkdb,jdbcType=VARCHAR},
+      </if>
+      <if test="klxdb != null">
+        #{klxdb,jdbcType=VARCHAR},
+      </if>
+      <if test="dkyfbxfdb != null">
+        #{dkyfbxfdb,jdbcType=VARCHAR},
+      </if>
+      <if test="zsbtdb != null">
+        #{zsbtdb,jdbcType=VARCHAR},
+      </if>
+      <if test="zwbtts != null">
+        #{zwbtts,jdbcType=DECIMAL},
+      </if>
+      <if test="jbjsts != null">
+        #{jbjsts,jdbcType=DECIMAL},
+      </if>
+      <if test="jbylts != null">
+        #{jbylts,jdbcType=DECIMAL},
+      </if>
+      <if test="ysjbxss != null">
+        #{ysjbxss,jdbcType=DECIMAL},
+      </if>
+      <if test="yr != null">
+        #{yr,jdbcType=VARCHAR},
+      </if>
+      <if test="month != null">
+        #{month,jdbcType=VARCHAR},
+      </if>
+      <if test="departname != null">
+        #{departname,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneno != null">
+        #{phoneno,jdbcType=VARCHAR},
+      </if>
+      <if test="mail != null">
+        #{mail,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ecombine.salary.pojo.SalaryDetailExample" resultType="java.lang.Long">
+    select count(*) from SalaryDetail
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update SalaryDetail
+    <set>
+      <if test="record.jobno != null">
+        jobNo = #{record.jobno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null">
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.year != null">
+        year = #{record.year,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null">
+        email = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.telno != null">
+        telNo = #{record.telno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wagedb != null">
+        wageDb = #{record.wagedb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jxgzbldb != null">
+        jxgzblDb = #{record.jxgzbldb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yfjxgzdb != null">
+        yfjxgzDb = #{record.yfjxgzdb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jxxsdb != null">
+        jxxsDb = #{record.jxxsdb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sfjxgzdb != null">
+        sfjxgzDb = #{record.sfjxgzdb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gwbtdb != null">
+        gwbtDb = #{record.gwbtdb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zwbtdb != null">
+        zwbtDb = #{record.zwbtdb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gxjldb != null">
+        gxjlDb = #{record.gxjldb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gxcfdb != null">
+        gxcfDb = #{record.gxcfdb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jbfdb != null">
+        jbfDb = #{record.jbfdb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.kqjgzdb != null">
+        kqjgzDb = #{record.kqjgzdb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cfbtdb != null">
+        cfbtDb = #{record.cfbtdb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gzbtdb != null">
+        gzbtDb = #{record.gzbtdb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gzkxdb != null">
+        gzkxDb = #{record.gzkxdb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yfgzhjdb != null">
+        yfgzhjDb = #{record.yfgzhjdb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dkbxfdb != null">
+        dkbxfDb = #{record.dkbxfdb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dkgjjdb != null">
+        dkgjjDb = #{record.dkgjjdb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gjjcbdb != null">
+        gjjcbDb = #{record.gjjcbdb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yssdedb != null">
+        yssdeDb = #{record.yssdedb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.kgrsdsdb != null">
+        kgrsdsDb = #{record.kgrsdsdb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dkgfdb != null">
+        dkgfDb = #{record.dkgfdb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.kqtdb != null">
+        kqtDb = #{record.kqtdb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.kkhjdb != null">
+        kkhjDb = #{record.kkhjdb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sfgzdb != null">
+        sfgzDb = #{record.sfgzdb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sjcq != null">
+        sjcq = #{record.sjcq,jdbcType=DECIMAL},
+      </if>
+      <if test="record.sjts != null">
+        sjts = #{record.sjts,jdbcType=DECIMAL},
+      </if>
+      <if test="record.bjts != null">
+        bjts = #{record.bjts,jdbcType=DECIMAL},
+      </if>
+      <if test="record.cbts != null">
+        cbts = #{record.cbts,jdbcType=DECIMAL},
+      </if>
+      <if test="record.des != null">
+        des = #{record.des,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mailaddr != null">
+        mailAddr = #{record.mailaddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.smsacti != null">
+        smsActi = #{record.smsacti,jdbcType=VARCHAR},
+      </if>
+      <if test="record.position != null">
+        position = #{record.position,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cqgzdb != null">
+        cqgzDb = #{record.cqgzdb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gwgzdb != null">
+        gwgzDb = #{record.gwgzdb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jngzdb != null">
+        jngzDb = #{record.jngzdb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bzgsgzdb != null">
+        bzgsgzDb = #{record.bzgsgzdb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cegsgzdb != null">
+        cegsgzDb = #{record.cegsgzdb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jbgsbtdb != null">
+        jbgsbtDb = #{record.jbgsbtdb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gaowbtdb != null">
+        gaowbtDb = #{record.gaowbtdb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bkshbxdb != null">
+        bkshbxDb = #{record.bkshbxdb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bkgjjdb != null">
+        bkgjjDb = #{record.bkgjjdb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.klwsdb != null">
+        klwsDb = #{record.klwsdb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.kgrjkdb != null">
+        kgrjkDb = #{record.kgrjkdb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.klxdb != null">
+        klxDb = #{record.klxdb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dkyfbxfdb != null">
+        dkyfbxfDb = #{record.dkyfbxfdb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zsbtdb != null">
+        zsbtDb = #{record.zsbtdb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zwbtts != null">
+        zwbtts = #{record.zwbtts,jdbcType=DECIMAL},
+      </if>
+      <if test="record.jbjsts != null">
+        jbjsts = #{record.jbjsts,jdbcType=DECIMAL},
+      </if>
+      <if test="record.jbylts != null">
+        jbylts = #{record.jbylts,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ysjbxss != null">
+        ysjbxss = #{record.ysjbxss,jdbcType=DECIMAL},
+      </if>
+      <if test="record.yr != null">
+        yr = #{record.yr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.month != null">
+        month = #{record.month,jdbcType=VARCHAR},
+      </if>
+      <if test="record.departname != null">
+        departName = #{record.departname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phoneno != null">
+        phoneNo = #{record.phoneno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mail != null">
+        mail = #{record.mail,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update SalaryDetail
+    set jobNo = #{record.jobno,jdbcType=VARCHAR},
+      name = #{record.name,jdbcType=VARCHAR},
+      year = #{record.year,jdbcType=VARCHAR},
+      email = #{record.email,jdbcType=VARCHAR},
+      telNo = #{record.telno,jdbcType=VARCHAR},
+      wageDb = #{record.wagedb,jdbcType=VARCHAR},
+      jxgzblDb = #{record.jxgzbldb,jdbcType=VARCHAR},
+      yfjxgzDb = #{record.yfjxgzdb,jdbcType=VARCHAR},
+      jxxsDb = #{record.jxxsdb,jdbcType=VARCHAR},
+      sfjxgzDb = #{record.sfjxgzdb,jdbcType=VARCHAR},
+      gwbtDb = #{record.gwbtdb,jdbcType=VARCHAR},
+      zwbtDb = #{record.zwbtdb,jdbcType=VARCHAR},
+      gxjlDb = #{record.gxjldb,jdbcType=VARCHAR},
+      gxcfDb = #{record.gxcfdb,jdbcType=VARCHAR},
+      jbfDb = #{record.jbfdb,jdbcType=VARCHAR},
+      kqjgzDb = #{record.kqjgzdb,jdbcType=VARCHAR},
+      cfbtDb = #{record.cfbtdb,jdbcType=VARCHAR},
+      gzbtDb = #{record.gzbtdb,jdbcType=VARCHAR},
+      gzkxDb = #{record.gzkxdb,jdbcType=VARCHAR},
+      yfgzhjDb = #{record.yfgzhjdb,jdbcType=VARCHAR},
+      dkbxfDb = #{record.dkbxfdb,jdbcType=VARCHAR},
+      dkgjjDb = #{record.dkgjjdb,jdbcType=VARCHAR},
+      gjjcbDb = #{record.gjjcbdb,jdbcType=VARCHAR},
+      yssdeDb = #{record.yssdedb,jdbcType=VARCHAR},
+      kgrsdsDb = #{record.kgrsdsdb,jdbcType=VARCHAR},
+      dkgfDb = #{record.dkgfdb,jdbcType=VARCHAR},
+      kqtDb = #{record.kqtdb,jdbcType=VARCHAR},
+      kkhjDb = #{record.kkhjdb,jdbcType=VARCHAR},
+      sfgzDb = #{record.sfgzdb,jdbcType=VARCHAR},
+      sjcq = #{record.sjcq,jdbcType=DECIMAL},
+      sjts = #{record.sjts,jdbcType=DECIMAL},
+      bjts = #{record.bjts,jdbcType=DECIMAL},
+      cbts = #{record.cbts,jdbcType=DECIMAL},
+      des = #{record.des,jdbcType=VARCHAR},
+      mailAddr = #{record.mailaddr,jdbcType=VARCHAR},
+      smsActi = #{record.smsacti,jdbcType=VARCHAR},
+      position = #{record.position,jdbcType=VARCHAR},
+      cqgzDb = #{record.cqgzdb,jdbcType=VARCHAR},
+      gwgzDb = #{record.gwgzdb,jdbcType=VARCHAR},
+      jngzDb = #{record.jngzdb,jdbcType=VARCHAR},
+      bzgsgzDb = #{record.bzgsgzdb,jdbcType=VARCHAR},
+      cegsgzDb = #{record.cegsgzdb,jdbcType=VARCHAR},
+      jbgsbtDb = #{record.jbgsbtdb,jdbcType=VARCHAR},
+      gaowbtDb = #{record.gaowbtdb,jdbcType=VARCHAR},
+      bkshbxDb = #{record.bkshbxdb,jdbcType=VARCHAR},
+      bkgjjDb = #{record.bkgjjdb,jdbcType=VARCHAR},
+      klwsDb = #{record.klwsdb,jdbcType=VARCHAR},
+      kgrjkDb = #{record.kgrjkdb,jdbcType=VARCHAR},
+      klxDb = #{record.klxdb,jdbcType=VARCHAR},
+      dkyfbxfDb = #{record.dkyfbxfdb,jdbcType=VARCHAR},
+      zsbtDb = #{record.zsbtdb,jdbcType=VARCHAR},
+      zwbtts = #{record.zwbtts,jdbcType=DECIMAL},
+      jbjsts = #{record.jbjsts,jdbcType=DECIMAL},
+      jbylts = #{record.jbylts,jdbcType=DECIMAL},
+      ysjbxss = #{record.ysjbxss,jdbcType=DECIMAL},
+      yr = #{record.yr,jdbcType=VARCHAR},
+      month = #{record.month,jdbcType=VARCHAR},
+      departName = #{record.departname,jdbcType=VARCHAR},
+      phoneNo = #{record.phoneno,jdbcType=VARCHAR},
+      mail = #{record.mail,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ecombine.salary.pojo.SalaryDetail">
+    update SalaryDetail
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null">
+        year = #{year,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="telno != null">
+        telNo = #{telno,jdbcType=VARCHAR},
+      </if>
+      <if test="wagedb != null">
+        wageDb = #{wagedb,jdbcType=VARCHAR},
+      </if>
+      <if test="jxgzbldb != null">
+        jxgzblDb = #{jxgzbldb,jdbcType=VARCHAR},
+      </if>
+      <if test="yfjxgzdb != null">
+        yfjxgzDb = #{yfjxgzdb,jdbcType=VARCHAR},
+      </if>
+      <if test="jxxsdb != null">
+        jxxsDb = #{jxxsdb,jdbcType=VARCHAR},
+      </if>
+      <if test="sfjxgzdb != null">
+        sfjxgzDb = #{sfjxgzdb,jdbcType=VARCHAR},
+      </if>
+      <if test="gwbtdb != null">
+        gwbtDb = #{gwbtdb,jdbcType=VARCHAR},
+      </if>
+      <if test="zwbtdb != null">
+        zwbtDb = #{zwbtdb,jdbcType=VARCHAR},
+      </if>
+      <if test="gxjldb != null">
+        gxjlDb = #{gxjldb,jdbcType=VARCHAR},
+      </if>
+      <if test="gxcfdb != null">
+        gxcfDb = #{gxcfdb,jdbcType=VARCHAR},
+      </if>
+      <if test="jbfdb != null">
+        jbfDb = #{jbfdb,jdbcType=VARCHAR},
+      </if>
+      <if test="kqjgzdb != null">
+        kqjgzDb = #{kqjgzdb,jdbcType=VARCHAR},
+      </if>
+      <if test="cfbtdb != null">
+        cfbtDb = #{cfbtdb,jdbcType=VARCHAR},
+      </if>
+      <if test="gzbtdb != null">
+        gzbtDb = #{gzbtdb,jdbcType=VARCHAR},
+      </if>
+      <if test="gzkxdb != null">
+        gzkxDb = #{gzkxdb,jdbcType=VARCHAR},
+      </if>
+      <if test="yfgzhjdb != null">
+        yfgzhjDb = #{yfgzhjdb,jdbcType=VARCHAR},
+      </if>
+      <if test="dkbxfdb != null">
+        dkbxfDb = #{dkbxfdb,jdbcType=VARCHAR},
+      </if>
+      <if test="dkgjjdb != null">
+        dkgjjDb = #{dkgjjdb,jdbcType=VARCHAR},
+      </if>
+      <if test="gjjcbdb != null">
+        gjjcbDb = #{gjjcbdb,jdbcType=VARCHAR},
+      </if>
+      <if test="yssdedb != null">
+        yssdeDb = #{yssdedb,jdbcType=VARCHAR},
+      </if>
+      <if test="kgrsdsdb != null">
+        kgrsdsDb = #{kgrsdsdb,jdbcType=VARCHAR},
+      </if>
+      <if test="dkgfdb != null">
+        dkgfDb = #{dkgfdb,jdbcType=VARCHAR},
+      </if>
+      <if test="kqtdb != null">
+        kqtDb = #{kqtdb,jdbcType=VARCHAR},
+      </if>
+      <if test="kkhjdb != null">
+        kkhjDb = #{kkhjdb,jdbcType=VARCHAR},
+      </if>
+      <if test="sfgzdb != null">
+        sfgzDb = #{sfgzdb,jdbcType=VARCHAR},
+      </if>
+      <if test="sjcq != null">
+        sjcq = #{sjcq,jdbcType=DECIMAL},
+      </if>
+      <if test="sjts != null">
+        sjts = #{sjts,jdbcType=DECIMAL},
+      </if>
+      <if test="bjts != null">
+        bjts = #{bjts,jdbcType=DECIMAL},
+      </if>
+      <if test="cbts != null">
+        cbts = #{cbts,jdbcType=DECIMAL},
+      </if>
+      <if test="des != null">
+        des = #{des,jdbcType=VARCHAR},
+      </if>
+      <if test="mailaddr != null">
+        mailAddr = #{mailaddr,jdbcType=VARCHAR},
+      </if>
+      <if test="smsacti != null">
+        smsActi = #{smsacti,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null">
+        position = #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="cqgzdb != null">
+        cqgzDb = #{cqgzdb,jdbcType=VARCHAR},
+      </if>
+      <if test="gwgzdb != null">
+        gwgzDb = #{gwgzdb,jdbcType=VARCHAR},
+      </if>
+      <if test="jngzdb != null">
+        jngzDb = #{jngzdb,jdbcType=VARCHAR},
+      </if>
+      <if test="bzgsgzdb != null">
+        bzgsgzDb = #{bzgsgzdb,jdbcType=VARCHAR},
+      </if>
+      <if test="cegsgzdb != null">
+        cegsgzDb = #{cegsgzdb,jdbcType=VARCHAR},
+      </if>
+      <if test="jbgsbtdb != null">
+        jbgsbtDb = #{jbgsbtdb,jdbcType=VARCHAR},
+      </if>
+      <if test="gaowbtdb != null">
+        gaowbtDb = #{gaowbtdb,jdbcType=VARCHAR},
+      </if>
+      <if test="bkshbxdb != null">
+        bkshbxDb = #{bkshbxdb,jdbcType=VARCHAR},
+      </if>
+      <if test="bkgjjdb != null">
+        bkgjjDb = #{bkgjjdb,jdbcType=VARCHAR},
+      </if>
+      <if test="klwsdb != null">
+        klwsDb = #{klwsdb,jdbcType=VARCHAR},
+      </if>
+      <if test="kgrjkdb != null">
+        kgrjkDb = #{kgrjkdb,jdbcType=VARCHAR},
+      </if>
+      <if test="klxdb != null">
+        klxDb = #{klxdb,jdbcType=VARCHAR},
+      </if>
+      <if test="dkyfbxfdb != null">
+        dkyfbxfDb = #{dkyfbxfdb,jdbcType=VARCHAR},
+      </if>
+      <if test="zsbtdb != null">
+        zsbtDb = #{zsbtdb,jdbcType=VARCHAR},
+      </if>
+      <if test="zwbtts != null">
+        zwbtts = #{zwbtts,jdbcType=DECIMAL},
+      </if>
+      <if test="jbjsts != null">
+        jbjsts = #{jbjsts,jdbcType=DECIMAL},
+      </if>
+      <if test="jbylts != null">
+        jbylts = #{jbylts,jdbcType=DECIMAL},
+      </if>
+      <if test="ysjbxss != null">
+        ysjbxss = #{ysjbxss,jdbcType=DECIMAL},
+      </if>
+      <if test="yr != null">
+        yr = #{yr,jdbcType=VARCHAR},
+      </if>
+      <if test="month != null">
+        month = #{month,jdbcType=VARCHAR},
+      </if>
+      <if test="departname != null">
+        departName = #{departname,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneno != null">
+        phoneNo = #{phoneno,jdbcType=VARCHAR},
+      </if>
+      <if test="mail != null">
+        mail = #{mail,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where jobNo = #{jobno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ecombine.salary.pojo.SalaryDetail">
+    update SalaryDetail
+    set name = #{name,jdbcType=VARCHAR},
+      year = #{year,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      telNo = #{telno,jdbcType=VARCHAR},
+      wageDb = #{wagedb,jdbcType=VARCHAR},
+      jxgzblDb = #{jxgzbldb,jdbcType=VARCHAR},
+      yfjxgzDb = #{yfjxgzdb,jdbcType=VARCHAR},
+      jxxsDb = #{jxxsdb,jdbcType=VARCHAR},
+      sfjxgzDb = #{sfjxgzdb,jdbcType=VARCHAR},
+      gwbtDb = #{gwbtdb,jdbcType=VARCHAR},
+      zwbtDb = #{zwbtdb,jdbcType=VARCHAR},
+      gxjlDb = #{gxjldb,jdbcType=VARCHAR},
+      gxcfDb = #{gxcfdb,jdbcType=VARCHAR},
+      jbfDb = #{jbfdb,jdbcType=VARCHAR},
+      kqjgzDb = #{kqjgzdb,jdbcType=VARCHAR},
+      cfbtDb = #{cfbtdb,jdbcType=VARCHAR},
+      gzbtDb = #{gzbtdb,jdbcType=VARCHAR},
+      gzkxDb = #{gzkxdb,jdbcType=VARCHAR},
+      yfgzhjDb = #{yfgzhjdb,jdbcType=VARCHAR},
+      dkbxfDb = #{dkbxfdb,jdbcType=VARCHAR},
+      dkgjjDb = #{dkgjjdb,jdbcType=VARCHAR},
+      gjjcbDb = #{gjjcbdb,jdbcType=VARCHAR},
+      yssdeDb = #{yssdedb,jdbcType=VARCHAR},
+      kgrsdsDb = #{kgrsdsdb,jdbcType=VARCHAR},
+      dkgfDb = #{dkgfdb,jdbcType=VARCHAR},
+      kqtDb = #{kqtdb,jdbcType=VARCHAR},
+      kkhjDb = #{kkhjdb,jdbcType=VARCHAR},
+      sfgzDb = #{sfgzdb,jdbcType=VARCHAR},
+      sjcq = #{sjcq,jdbcType=DECIMAL},
+      sjts = #{sjts,jdbcType=DECIMAL},
+      bjts = #{bjts,jdbcType=DECIMAL},
+      cbts = #{cbts,jdbcType=DECIMAL},
+      des = #{des,jdbcType=VARCHAR},
+      mailAddr = #{mailaddr,jdbcType=VARCHAR},
+      smsActi = #{smsacti,jdbcType=VARCHAR},
+      position = #{position,jdbcType=VARCHAR},
+      cqgzDb = #{cqgzdb,jdbcType=VARCHAR},
+      gwgzDb = #{gwgzdb,jdbcType=VARCHAR},
+      jngzDb = #{jngzdb,jdbcType=VARCHAR},
+      bzgsgzDb = #{bzgsgzdb,jdbcType=VARCHAR},
+      cegsgzDb = #{cegsgzdb,jdbcType=VARCHAR},
+      jbgsbtDb = #{jbgsbtdb,jdbcType=VARCHAR},
+      gaowbtDb = #{gaowbtdb,jdbcType=VARCHAR},
+      bkshbxDb = #{bkshbxdb,jdbcType=VARCHAR},
+      bkgjjDb = #{bkgjjdb,jdbcType=VARCHAR},
+      klwsDb = #{klwsdb,jdbcType=VARCHAR},
+      kgrjkDb = #{kgrjkdb,jdbcType=VARCHAR},
+      klxDb = #{klxdb,jdbcType=VARCHAR},
+      dkyfbxfDb = #{dkyfbxfdb,jdbcType=VARCHAR},
+      zsbtDb = #{zsbtdb,jdbcType=VARCHAR},
+      zwbtts = #{zwbtts,jdbcType=DECIMAL},
+      jbjsts = #{jbjsts,jdbcType=DECIMAL},
+      jbylts = #{jbylts,jdbcType=DECIMAL},
+      ysjbxss = #{ysjbxss,jdbcType=DECIMAL},
+      yr = #{yr,jdbcType=VARCHAR},
+      month = #{month,jdbcType=VARCHAR},
+      departName = #{departname,jdbcType=VARCHAR},
+      phoneNo = #{phoneno,jdbcType=VARCHAR},
+      mail = #{mail,jdbcType=VARCHAR}
+    where jobNo = #{jobno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateSalaryDetail" parameterType="com.ecombine.salary.pojo.SalaryDetail">
+    update SalaryDetail set smsActi=#{smsActi} where jobno = #{jobno}
+  </update>
+</mapper>
